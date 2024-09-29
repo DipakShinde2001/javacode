@@ -1,0 +1,23 @@
+import java.io.*;
+import java.util.*;
+class Seta3{
+public static void main(String[] args)throws IOException
+{
+int c;
+String f1,f2;
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter name of first file: ");
+f1=sc.next();
+System.out.println("Enter name of second file: ");
+f2=sc.next();
+FileReader fr=new FileReader(f1);
+FileWriter fw=new FileWriter(f2,true);
+while((c=fr.read())!=-1)
+{
+fw.write(c);
+}
+fw.append("\nEND OF FILE");
+fr.close();
+fw.close();
+}
+}
