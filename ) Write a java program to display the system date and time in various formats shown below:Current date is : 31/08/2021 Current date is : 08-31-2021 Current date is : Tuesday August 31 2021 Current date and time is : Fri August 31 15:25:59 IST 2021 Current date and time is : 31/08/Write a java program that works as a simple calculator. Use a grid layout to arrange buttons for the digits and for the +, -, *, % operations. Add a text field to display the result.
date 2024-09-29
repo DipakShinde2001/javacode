@@ -1,0 +1,197 @@
+importjava.awt.*;
+importjava.awt.event.*;
+importjavax.swing.*;
+public class Calculator extendsJFrameimplementsActionListener
+{
+JTextFieldtf1;
+JButtonb[]=newJButton[10],bmult,bdiv,badd,bsub,bequal,bdot;
+JPanelp1,p2;
+charopr;
+// int num1,num2;
+// intans=0;
+// booleanint_float_flag=false;
+String num="";
+doublefnum1,fnum2,fans;
+Calculator()
+{
+tf1=newJTextField();
+for(inti=0;i<10;i++)
+{
+b[i]=newJButton(Integer.toString(i));
+b[i].addActionListener(this);
+}
+bmult=newJButton("*");
+bdiv=newJButton("/");
+badd=newJButton("+");
+bsub=newJButton("-");
+bequal=newJButton("=");
+bdot=newJButton(".");
+bmult.addActionListener(this);
+bdiv.addActionListener(this);
+badd.addActionListener(this);
+bsub.addActionListener(this);
+bequal.addActionListener(this);
+bdot.addActionListener(this);
+p1=newJPanel();
+p1.setLayout(newGridLayout(1,1));
+p1.add(tf1);
+p2=newJPanel();
+p2.setLayout(newGridLayout(4,4));
+for(inti=1;i<=3;i++)
+p2.add(b[i]);
+p2.add(badd);
+for(inti=4;i<=6;i++)
+p2.add(b[i]);
+p2.add(bsub);
+for(inti=7;i<=9;i++)
+p2.add(b[i]);
+p2.add(bmult);
+p2.add(b[0]);
+p2.add(bdot);
+p2.add(bequal);
+p2.add(bdiv);
+setLayout(newBorderLayout());
+add(p1,BorderLayout.NORTH);
+add(p2,BorderLayout.CENTER);
+setTitle("Simple Calculator ");
+setSize(500,400);
+setVisible(true);
+setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+}
+publicvoidactionPerformed(ActionEventae)
+{
+JButtontb=(JButton)ae.getSource();
+if(tb==b[0])
+{
+num=num+"0";
+tf1.setText(num);
+/* if(tf1.getText()=="0"||tf1.getText()=="0.0")
+num="";
+int n=Integer.parseInt(num);
+tf1.setText(Integer.toString(n));
+*/
+}
+if(tb==b[1])
+{
+num=num+"1";
+tf1.setText(num);
+}
+if(tb==b[2])
+{
+num=num+"2";
+tf1.setText(num);
+}
+if(tb==b[3])
+ {
+num=num+"3";
+tf1.setText(num);
+ }
+if(tb==b[4])
+ {
+num=num+"4";
+tf1.setText(num);
+ }
+if(tb==b[5])
+ {
+num=num+"5";
+tf1.setText(num);
+ }
+if(tb==b[6])
+ {
+num=num+"6";
+tf1.setText(num);
+ }
+if(tb==b[7])
+ {
+num=num+"7";
+tf1.setText(num);
+ }
+if(tb==b[8])
+ {
+num=num+"8";
+tf1.setText(num);
+ }
+if(tb==b[9])
+ {
+num=num+"9";
+tf1.setText(num);
+ }
+if(tb==badd)
+{
+String tempNum=tf1.getText();
+if(tempNum.contains("."))
+fnum1=Double.parseDouble(tf1.getText());
+else
+fnum1=Integer.parseInt(tf1.getText());
+opr='+';
+num="";
+}
+if(tb==bsub)
+ {
+String tempNum=tf1.getText();
+if(tempNum.contains("."))
+fnum1=Double.parseDouble(tf1.getText());
+else
+fnum1=Integer.parseInt(tf1.getText());
+opr='-';
+num="";
+ }
+if(tb==bmult)
+ {
+ String tempNum=tf1.getText();
+if(tempNum.contains("."))
+fnum1=Double.parseDouble(tf1.getText());
+else
+fnum1=Integer.parseInt(tf1.getText());
+opr='*';
+num="";
+ }
+if(tb==bdiv)
+ {
+ String tempNum=tf1.getText();
+if(tempNum.contains("."))
+fnum1=Double.parseDouble(tf1.getText());
+else
+fnum1=Integer.parseInt(tf1.getText());
+opr='/';
+num="";
+ }
+if(tb==bdot)
+{
+num=num+".";
+tf1.setText(num);
+}
+if(tb==bequal)
+{
+String tempNum=tf1.getText();
+if(tempNum.contains("."))
+fnum2=Double.parseDouble(tf1.getText());
+else
+{
+fnum2=Integer.parseInt(tf1.getText());
+}
+num="";
+if(opr=='+')
+fans=fnum1+fnum2;
+elseif(opr=='-')
+fans=fnum1-fnum2;
+elseif(opr=='*')
+fans=fnum1*fnum2;
+elseif(opr=='/')
+{
+if(fnum2==0)
+{
+tf1.setText("ERROR: Divide By Zero");
+return;
+}
+else
+fans=fnum1/fnum2;
+}
+tf1.setText(Double.toString(fans));
+}
+}
+publicstaticvoid main(String args[])
+{
+new Calculator();
+}
+}
