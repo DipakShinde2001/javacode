@@ -1,0 +1,80 @@
+import java.util.Scanner;
+public class menudriven
+{
+public static void main(String[] args)
+{
+int choice;//for storing users choice
+double radius;
+double height;
+double volume;
+Scanner sc=new Scanner(System.in);//Creating object of the scanner class
+//displaying the menu
+System.out.println("1:Volume of cylinder");
+System.out.println("2:Factorial of number");
+System.out.println("3:Number is armstrong or not");
+System.out.println("4:Exit");
+lp : while(true)//labelling the while loop
+{
+System.out.println("Make your choice");
+choice=sc.nextInt();//reading users choice
+switch(choice)
+{
+case 1:
+//take input from the user
+//create an instance of the scanner class
+Scanner s=new Scanner(System.in);
+System.out.println("Enter the radius:");
+radius=s.nextDouble();
+System.out.println("Enter the height:");
+height=s.nextDouble();
+volume=(22*(radius*radius)*height/7);
+System.out.println("volume of cylinder is:"+volume);
+break;
+case 2:
+Scanner a=new Scanner(System.in);
+System.out.println("Enter the number:");
+int num=a.nextInt();
+int i=1,fact=1;
+while(i<=num)
+{
+fact=fact*i;
+i++;
+}
+System.out.println("Factorial of the number:"+fact);
+break;
+case 3:
+int temp,totalDigit=0,res=0,rem,pow;
+Scanner b=new Scanner(System.in);
+System.out.println("Enter the number:");
+num=b.nextInt();
+temp=num;
+while(num>0)
+{
+num=num/10;
+totalDigit++;
+}
+num=temp;
+while(num>0)
+{
+rem=num%10;
+pow=1;
+i=0;
+while(i<totalDigit)
+{
+pow=pow*rem;
+i++;
+}
+res=res+pow;
+num=num/10;
+}
+if(res==temp)
+System.out.println("\n Armstrong number:");
+else
+System.out.println("\n Not an Armstrong number:");
+break;
+case 4:System.out.println("EXIT");
+break;
+}
+}
+}
+}
