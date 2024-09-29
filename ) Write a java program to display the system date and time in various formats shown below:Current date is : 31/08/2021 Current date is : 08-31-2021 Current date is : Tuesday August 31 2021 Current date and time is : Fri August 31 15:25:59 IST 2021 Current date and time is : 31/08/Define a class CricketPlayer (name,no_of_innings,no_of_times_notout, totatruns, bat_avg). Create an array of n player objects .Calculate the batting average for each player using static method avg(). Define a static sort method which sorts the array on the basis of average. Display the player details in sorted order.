@@ -86,3 +86,11 @@ for(int i=0;i<n;i++)
 c[i]=new Cricket();
 c[i].get();
 }
+
+Cricket.avg(n,c);
+Cricket.sort(n, c);
+for(int i=0;i<n;i++){
+c[i].put();
+}
+}
+}
