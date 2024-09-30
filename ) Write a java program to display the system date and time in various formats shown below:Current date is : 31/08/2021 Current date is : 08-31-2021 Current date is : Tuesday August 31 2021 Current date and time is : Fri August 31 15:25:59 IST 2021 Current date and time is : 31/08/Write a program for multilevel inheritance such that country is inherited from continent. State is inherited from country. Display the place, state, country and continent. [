@@ -1,0 +1,17 @@
+class Continent {
+ String continentName = "Asia";
+}
+class Country extends Continent {
+ String countryName = "India";
+}
+class State extends Country {
+ String stateName = "Maharashtra";
+}
+public class Place {
+ public static void main(String[] args) {
+ State state = new State();
+ System.out.println("Continent: " + state.continentName);
+ System.out.println("Country: " + state.countryName);
+ System.out.println("State: " + state.stateName);
+ }
+}
